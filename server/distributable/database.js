@@ -7,7 +7,7 @@
 
 "use strict";
 
-const bcrypt = require("../../distributable/node_modules/bcrypt");
+const bcrypt = require("bcrypt");
 const {LL_DBExecutor} = require("./database-executor-file.js");
 const {LL_Assert} = require("./assert.js");
 const {LL_Observation} = require("./observation.js");

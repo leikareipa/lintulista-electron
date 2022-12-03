@@ -20,7 +20,7 @@ app.whenReady().then(()=>{
 
 function start_server() {
     const http = require("http");
-    const {LL_ProcessRequest} = require("./server/process-request.js");
+    const {LL_ProcessRequest} = require("../server/process-request.js");
     http.createServer(LL_ProcessRequest).listen(8080, "127.0.0.1");
 }
 
