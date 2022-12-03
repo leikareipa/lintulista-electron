@@ -11,14 +11,11 @@ export const lla_close_dialog = LL_Action({
   }) {
     ll_assert_native_type("function", dialog);
     const dialogs = document.querySelectorAll(`.${dialogContainerClass}.${dialog.name}`);
-
     for (let i = 0; i < dialogs.length; i++) {
       dialogs[i].remove();
     }
-
     {
       const shades = Array.from(document.querySelectorAll("[id^=shades-generated]"));
-
       for (const shade of shades) {
         shade.remove();
       }

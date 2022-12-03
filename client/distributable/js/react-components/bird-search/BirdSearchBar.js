@@ -10,26 +10,20 @@ export function BirdSearchBar(props = {}) {
   React.useEffect(() => {
     window.addEventListener("mousedown", handle_search_click);
     return () => window.removeEventListener("mousedown", handle_search_click);
-
     function handle_search_click(clickEvent) {
       const clickedOnSearchElement = (() => {
         let targetNode = clickEvent.target;
-
         if (targetNode && targetNode.tagName.toLowerCase() === "html") {
           return true;
         }
-
         while (targetNode) {
           if (targetNode.classList && (targetNode.classList.contains("BirdSearchResultsDisplay") || targetNode.classList.contains("BirdSearchResult") || targetNode.classList.contains("BirdSearchBar"))) {
             return true;
           }
-
           targetNode = targetNode.parentNode;
         }
-
         return false;
       })();
-
       if (!clickedOnSearchElement) {
         setState("inactive");
       }
@@ -42,13 +36,11 @@ export function BirdSearchBar(props = {}) {
           props.cbOnInactivate();
           break;
         }
-
       case "active":
         {
           props.cbOnActivate();
           break;
         }
-
       default:
         console.error(`Unknown state "${state}".`);
         break;
@@ -73,15 +65,12 @@ export function BirdSearchBar(props = {}) {
   }), React.createElement("i", {
     className: "icon fas fa-search"
   }));
-
   function got_focus(gotIt) {
     setState(gotIt ? "active" : "inactive");
-
     if (gotIt && currentText) {
       props.cbOnChange(currentText);
     }
   }
-
   function handle_input_event(inputEvent) {
     const inputString = inputEvent.target.value.trim();
     setCurrentText(inputString);
@@ -94,7 +83,6 @@ BirdSearchBar.defaultProps = {
   cbOnActivate: () => {},
   cbOnInactivate: () => {}
 };
-
 BirdSearchBar.validateProps = function (props) {
   ll_assert_native_type("object", props);
   ll_assert_native_type("string", props.initialState);

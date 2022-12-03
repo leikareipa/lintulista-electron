@@ -12,15 +12,12 @@ export function Dialog(props = {}) {
   React.useEffect(() => {
     if (acceptViaCode) {
       setAcceptViaCode(false);
-
       if (acceptButtonEnabled) {
         triggerAcceptButtonPress();
       }
     }
-
     if (rejectViaCode && rejectButtonEnabled) {
       setRejectViaCode(false);
-
       if (rejectButtonEnabled) {
         reject();
       }
@@ -29,52 +26,42 @@ export function Dialog(props = {}) {
   React.useEffect(() => {
     window.addEventListener("keydown", handle_key);
     return () => window.removeEventListener("keydown", handle_key);
-
     function handle_key(keyEvent) {
       if (props.disableTabKey && keyEvent.key === "Tab") {
         keyEvent.preventDefault();
         return;
       }
-
       if (props.enterAccepts && keyEvent.key === "Enter") {
         setAcceptViaCode(true);
         return;
       }
-
       if (props.escRejects && keyEvent.key === "Escape") {
         setRejectViaCode(true);
         return;
       }
     }
   }, []);
-
   if (typeof props.callbackSetButtonEnabled === "function") {
     props.callbackSetButtonEnabled((button, state) => {
       switch (button) {
         case "accept":
           setAcceptButtonEnabled(state);
           break;
-
         case "reject":
           setRejectButtonEnabled(state);
           break;
-
         default:
           console.error(`Unknown button "${button}"`);
       }
     });
   }
-
   if (typeof props.giveCallbackTriggerDialogAccept === "function") {
     props.giveCallbackTriggerDialogAccept(() => setAcceptViaCode(true));
   }
-
   if (typeof props.giveCallbackTriggerDialogReject === "function") {
     props.giveCallbackTriggerDialogReject(() => setRejectViaCode(true));
   }
-
   let triggerAcceptButtonPress = () => {};
-
   const dialogRef = React.useRef();
   return React.createElement("div", {
     className: `Dialog ${props.component}`,
@@ -104,26 +91,22 @@ export function Dialog(props = {}) {
       triggerAcceptButtonPress = callback;
     }
   }))));
-
   function accept() {
     setRejectButtonEnabled(false);
     props.onDialogAccept();
   }
-
   function reject() {
     setAcceptButtonEnabled(false);
     setRejectButtonEnabled(false);
     props.onDialogReject();
   }
 }
-
 Dialog.validateProps = function (props) {
   ll_assert_native_type("object", props);
   ll_assert_native_type("string", props.component, props.title, props.acceptButtonText, props.rejectButtonText);
   ll_assert_native_type("function", props.onDialogAccept, props.onDialogReject);
   return;
 };
-
 Dialog.defaultProps = {
   acceptButtonEnabled: true,
   rejectButtonEnabled: true,

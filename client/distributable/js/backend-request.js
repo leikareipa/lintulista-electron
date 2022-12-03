@@ -55,11 +55,9 @@ export const ll_backend_request = {
   },
   get_known_birds_list: async function () {
     let response = await fetch(backendURLs.knownBirdSpecies);
-
     if (!response.ok) {
       throw LL_Throwable(response.statusText);
     }
-
     response = await response.json();
     ll_assert_native_type("array", response.birds);
     return response.birds.map(b => LL_Bird(b.species));

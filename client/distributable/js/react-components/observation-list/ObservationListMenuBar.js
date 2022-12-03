@@ -18,10 +18,8 @@ export function ObservationListMenuBar(props = {}) {
     return () => {
       window.removeEventListener("scroll", update_sticky_scroll);
     };
-
     function update_sticky_scroll() {
       const stickThresholdY = 220;
-
       if (!isBarSticky && window.scrollY > stickThresholdY) {
         setIsBarSticky(true);
       } else if (isBarSticky && window.scrollY <= stickThresholdY) {
@@ -79,7 +77,6 @@ export function ObservationListMenuBar(props = {}) {
     showTooltip: false
   })));
 }
-
 ObservationListMenuBar.validate_props = function (props) {
   ll_assert_native_type("object", props, props.backend);
   return;

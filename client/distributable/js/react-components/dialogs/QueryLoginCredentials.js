@@ -8,9 +8,7 @@ export function QueryLoginCredentials(props = {}) {
   const usernameRef = React.useRef();
   let password = "";
   let username = "";
-
   let setButtonEnabled = (button, state) => {};
-
   return React.createElement(Dialog, {
     component: "QueryLoginCredentials",
     title: tr("Log in"),
@@ -55,27 +53,22 @@ export function QueryLoginCredentials(props = {}) {
   }), React.createElement("div", {
     className: "instruction"
   }, tr("Your login will remain active until you log out or reload " + "the page. Otherwise, you'll be logged out automatically after " + "about six hours."))));
-
   function control_tab_presses(keyDownEvent) {
     if (keyDownEvent.code === "Tab") {
       usernameRef.current.focus();
       keyDownEvent.preventDefault();
     }
-
     return;
   }
-
   function accept() {
     props.return.username = username;
     props.return.password = password;
     props.onAccept();
   }
-
   function reject() {
     props.onReject();
   }
 }
-
 QueryLoginCredentials.validateProps = function (props) {
   ll_assert_native_type("object", props, props.return);
   ll_assert_native_type("function", props.onAccept, props.onReject);

@@ -34,11 +34,9 @@ export const lla_start_lintulista = LL_Action({
   },
   finally: async () => {
     const headerElement = document.querySelector("#lintulista > header");
-
     if (headerElement instanceof Element) {
       headerElement.classList.add("paused");
     }
-
     ;
   }
 });

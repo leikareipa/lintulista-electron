@@ -10,43 +10,32 @@ export function MenuButton(props = {}) {
     return () => {
       window.removeEventListener("mousedown", handle_mousedown);
     };
-
     function handle_mousedown(clickEvent) {
       const clickedOnSelf = (() => {
         let node = clickEvent.target;
-
         while (node) {
           if (node.dataset && node.dataset.menuButtonId === props.id) {
             return true;
           }
-
           node = node.parentNode;
         }
-
         return false;
       })();
-
       const clickedOnItem = Boolean(clickedOnSelf && clickEvent.target.classList && clickEvent.target.classList.contains("item"));
       const clickedOnTitle = Boolean(clickedOnSelf && clickEvent.target.classList && clickEvent.target.classList.contains("title"));
-
       const clickedOnCustomMenu = (() => {
         if (!props.customMenu) {
           return false;
         }
-
         let node = clickEvent.target;
-
         while (node) {
           if (node.classList && node.classList.contains("custom-menu")) {
             return true;
           }
-
           node = node.parentNode;
         }
-
         return false;
       })();
-
       if (clickedOnSelf) {
         if (!clickedOnItem && !clickedOnTitle && !clickedOnCustomMenu) {
           dropdownVisible ? hide_dropdown() : show_dropdown();
@@ -62,7 +51,6 @@ export function MenuButton(props = {}) {
     className: "item",
     onClick: () => handle_item_click(idx, item.callbackOnSelect)
   }, item.text));
-
   const dropDownMenu = (() => {
     if (props.customMenu) {
       return React.createElement("div", {
@@ -82,7 +70,6 @@ export function MenuButton(props = {}) {
       }
     }
   })();
-
   return React.createElement("div", {
     className: `MenuButton ${props.enabled ? "enabled" : "disabled"} ${props.id}`,
     "data-menu-button-id": props.id
@@ -97,18 +84,15 @@ export function MenuButton(props = {}) {
   }, React.createElement("i", {
     className: props.icon
   })), dropDownMenu);
-
   function handle_item_click(itemIdx, callback) {
     ll_assert(props.items.length, "Received a click on an item even though there are no items.");
     setCurrentItemText(props.items[itemIdx].text);
     setDropdownVisible(false);
     callback();
   }
-
   function hide_dropdown() {
     setDropdownVisible(false);
   }
-
   function show_dropdown() {
     if (props.items.length || props.customMenu) {
       setDropdownVisible(true);
@@ -127,7 +111,6 @@ MenuButton.defaultProps = {
   callbackOnButtonClick: () => {},
   customMenu: false
 };
-
 MenuButton.validate_props = function (props) {
   ll_assert_native_type("object", props, props.items);
   ll_assert_native_type("string", props.menuTitle, props.id);

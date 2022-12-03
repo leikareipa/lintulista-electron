@@ -16,12 +16,10 @@ export const lla_log_in = LL_Action({
     const credentials = await lla_open_dialog.async_nocatch({
       dialog: QueryLoginCredentials
     });
-
     if (credentials) {
       await backend.login(credentials.username, credentials.password);
       return true;
     }
-
     return;
   },
   finally: async function () {

@@ -11,64 +11,62 @@ const initialState = {
   language: "fiFI"
 };
 export const store = Redux.createStore(reducer);
-
 function reducer(state = initialState, action) {
   switch (action.type) {
     case "set-language":
       {
-        return { ...state,
+        return {
+          ...state,
           language: action.language
         };
       }
-
     case "set-100-lajia-mode":
       {
-        return { ...state,
+        return {
+          ...state,
           is100LajiaMode: action.isEnabled
         };
       }
-
     case "set-logged-in":
       {
-        return { ...state,
+        return {
+          ...state,
           isLoggedIn: action.isLoggedIn
         };
       }
-
     case "set-highlighted-species":
       {
-        return { ...state,
+        return {
+          ...state,
           highlightedSpecies: action.species
         };
       }
-
     case "remove-species-highlight":
       {
-        return { ...state,
+        return {
+          ...state,
           highlightedSpecies: null
         };
       }
-
     case "set-observations":
       {
-        return { ...state,
+        return {
+          ...state,
           observations: observations_sorted_by_date(action.observations),
           is100LajiaMode: action.observations.length <= 0
         };
       }
-
     case "set-known-birds":
       {
-        return { ...state,
+        return {
+          ...state,
           knownBirds: action.knownBirds
         };
       }
-
     default:
       return state;
   }
 }
-
 function observations_sorted_by_date(observations = [LL_Observation]) {
   const obsCopy = observations.map(o => {
     ll_assert_type(LL_Observation, o);

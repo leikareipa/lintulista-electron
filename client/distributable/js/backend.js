@@ -6,7 +6,7 @@ import { LL_Observation } from "./observation.js";
 import { LL_Bird } from "./bird.js";
 import { LL_BaseType } from "./base-type.js";
 export async function LL_Backend(listKey, reduxStore) {
-  const knownBirds = Object.freeze((await ll_backend_request.get_known_birds_list()));
+  const knownBirds = Object.freeze(await ll_backend_request.get_known_birds_list());
   reduxStore.dispatch({
     type: "set-known-birds",
     knownBirds: knownBirds.reduce((list, bird) => {
@@ -36,7 +36,6 @@ export async function LL_Backend(listKey, reduxStore) {
     },
     logout: async function () {
       ll_assert(loginToken !== null, "Trying to log out without having been logged in.");
-
       try {
         await ll_backend_request.logout(listKey, loginToken);
       } catch (error) {
@@ -50,7 +49,6 @@ export async function LL_Backend(listKey, reduxStore) {
         });
         window.removeEventListener("beforeunload", this.logout);
       }
-
       return;
     },
     delete_observation: async function (observation = LL_Observation) {
@@ -74,7 +72,6 @@ export async function LL_Backend(listKey, reduxStore) {
     ...LL_BaseType(LL_Backend)
   });
   return publicInterface;
-
   function update_observation_store(observations = [LL_Observation]) {
     reduxStore.dispatch({
       type: "set-observations",
@@ -86,10 +83,8 @@ export async function LL_Backend(listKey, reduxStore) {
     return;
   }
 }
-
 LL_Backend.is_parent_of = function (candidate) {
   return LL_BaseType.type_of(candidate) === LL_Backend && candidate.hasOwnProperty("login") && candidate.hasOwnProperty("logout") && candidate.hasOwnProperty("delete_observation") && candidate.hasOwnProperty("add_observation");
 };
-
 LL_Backend.create_new_list = ll_backend_request.create_new_list;
 LL_Backend.get_known_birds_list = ll_backend_request.get_known_birds_list;

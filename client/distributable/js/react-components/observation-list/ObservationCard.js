@@ -37,7 +37,6 @@ export function ObservationCard(props = {}) {
 ObservationCard.defaultProps = {
   isGhost: false
 };
-
 ObservationCard.validate_props = function (props) {
   ll_assert_native_type("object", props);
   ll_assert_native_type("boolean", props.isGhost);

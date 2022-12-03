@@ -9,7 +9,6 @@ import { AsyncIconButton } from "../../react-components/buttons/AsyncIconButton.
 export function ObservationList_MenuBar_LoginButton(props = {}) {
   ObservationList_MenuBar_LoginButton.validate_props(props);
   const isLoggedIn = ReactRedux.useSelector(state => state.isLoggedIn);
-
   if (isLoggedIn) {
     return React.createElement(AsyncIconButton, {
       icon: "fas fa-shield-alt fa-fw fa-lg",
@@ -18,7 +17,6 @@ export function ObservationList_MenuBar_LoginButton(props = {}) {
       task: on_click
     });
   }
-
   return React.createElement("div", {
     className: `Button ObservationList_MenuBar_LoginButton`,
     onClick: on_click,
@@ -28,7 +26,6 @@ export function ObservationList_MenuBar_LoginButton(props = {}) {
   }, React.createElement("i", {
     className: isLoggedIn ? "fas fa-shield-alt fa-fw fa-lg" : "fas fa-lock fa-fw fa-lg"
   })));
-
   async function on_click() {
     if (isLoggedIn) {
       await lla_log_out.async({
@@ -39,11 +36,9 @@ export function ObservationList_MenuBar_LoginButton(props = {}) {
         backend: props.backend
       });
     }
-
     return;
   }
 }
-
 ObservationList_MenuBar_LoginButton.validate_props = function (props) {
   ll_assert_native_type("object", props);
   ll_assert_type(LL_Backend, props.backend);

@@ -17,7 +17,6 @@ export function Button(props = {}) {
   }, React.createElement("i", {
     className: props.icon
   })));
-
   function handle_click() {
     props.callbackOnButtonClick();
     return;
@@ -32,7 +31,6 @@ Button.defaultProps = {
   tooltip: "?",
   callbackOnButtonClick: () => {}
 };
-
 Button.validate_props = function (props) {
   ll_assert_native_type("object", props);
   return;

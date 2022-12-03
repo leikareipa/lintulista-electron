@@ -40,7 +40,6 @@ export function BirdThumbnail(props = {}) {
         const containerRect = thumbnailRef.current.getBoundingClientRect();
         return Boolean(containerRect.top > -containerRect.height && containerRect.top < viewHeight);
       })();
-
       if (isInView) {
         mark_thumbnail_observed();
         thumbnailRef.current.setAttribute("src", bird.thumbnailUrl);
@@ -59,7 +58,6 @@ export function BirdThumbnail(props = {}) {
     src: thumbnailSrc,
     ref: thumbnailRef
   });
-
   function mark_thumbnail_observed() {
     observedImages.add(bird.thumbnailUrl);
   }
@@ -67,7 +65,6 @@ export function BirdThumbnail(props = {}) {
 BirdThumbnail.defaultProps = {
   useLazyLoading: true
 };
-
 BirdThumbnail.validate_props = function (props) {
   ll_assert_native_type("object", props);
   ll_assert_native_type("string", props.species);

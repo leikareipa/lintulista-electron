@@ -64,7 +64,6 @@ export function QueryNewObservationDate(props = {}) {
       year = value;
     }
   })))));
-
   function accept() {
     props.return.day = day;
     props.return.month = month;
@@ -72,7 +71,6 @@ export function QueryNewObservationDate(props = {}) {
     props.onAccept();
   }
 }
-
 QueryNewObservationDate.validateProps = function (props) {
   ll_assert_native_type("object", props, props.args, props.return);
   ll_assert_native_type("function", props.onAccept, props.onReject);

@@ -21,21 +21,17 @@ export function BirdSearch(props = {}) {
                         ${currentSearchResult ? "active" : "inactive"}
                         ${isLoggedIn ? "logged-in" : "not-logged-in"}`
   }, currentSearchResult ? currentSearchResult.element : React.createElement(React.Fragment, null)));
-
   function refresh_search_results(searchString = "") {
     searchString = searchString.trim();
-
     if (!searchString.length) {
       reset_search_results();
       return;
     }
-
     (exactMatch => {
       if (exactMatch) {
         update_match(exactMatch);
         return;
       }
-
       (partialMatch => {
         if (partialMatch) {
           update_match(partialMatch);
@@ -43,10 +39,8 @@ export function BirdSearch(props = {}) {
         }
       })(knownBirds.find(bird => bird.species.toLowerCase().includes(searchString.toLowerCase())));
     })(knownBirds.find(bird => bird.species.toLowerCase() === searchString.toLowerCase()));
-
     function update_match(bird = LL_Bird) {
       ll_assert_type(LL_Bird, bird);
-
       if (!currentSearchResult || bird.species !== currentSearchResult.bird.species) {
         setCurrentSearchResult({
           bird,
@@ -54,7 +48,6 @@ export function BirdSearch(props = {}) {
         });
       }
     }
-
     function make_result_element(bird = LL_Bird) {
       ll_assert_type(LL_Bird, bird);
       const observation = observations.find(obs => obs.species === bird.species);
@@ -68,7 +61,6 @@ export function BirdSearch(props = {}) {
       });
     }
   }
-
   function reset_search_results() {
     setCurrentSearchResult(false);
   }
@@ -76,7 +68,6 @@ export function BirdSearch(props = {}) {
 BirdSearch.defaultProps = {
   maxNumResultElements: 1
 };
-
 BirdSearch.validate_props = function (props) {
   ll_assert_native_type("object", props, props.backend);
   return;

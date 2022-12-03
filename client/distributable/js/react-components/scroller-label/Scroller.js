@@ -26,7 +26,6 @@ export function Scroller(props = {}) {
   }, React.createElement("i", {
     className: props.icon
   }));
-
   function start_firing_loop() {
     if (!firingLoop) {
       setFiringLoop(setInterval(fire, firingLoopIntervalMs));
@@ -34,14 +33,12 @@ export function Scroller(props = {}) {
       console.warn("A scroller started firing twice.");
     }
   }
-
   function stop_firing_loop() {
     if (firingLoop) {
       clearInterval(firingLoop);
       setFiringLoop(null);
     }
   }
-
   function fire() {
     props.callback();
   }
@@ -49,7 +46,6 @@ export function Scroller(props = {}) {
 Scroller.defaultProps = {
   symbol: "fas fa-question"
 };
-
 Scroller.validateProps = function (props) {
   ll_assert_native_type("function", props.callback);
   return;

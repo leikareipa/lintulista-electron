@@ -19,7 +19,7 @@ const lintulistaServerUrl = "http://localhost:8080";
 const backendURLs = {
     lists: lintulistaServerUrl,
     login: `${lintulistaServerUrl}/login`,
-    knownBirdSpecies: "./server/known-birds.json",
+    knownBirdSpecies: "../server/known-birds.json",
 };
 
 export const ll_backend_request = {

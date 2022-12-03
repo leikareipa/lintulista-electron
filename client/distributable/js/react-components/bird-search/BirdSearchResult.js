@@ -13,7 +13,6 @@ export function BirdSearchResult(props = {}) {
   BirdSearchResult.validate_props(props);
   const storeDispatch = ReactRedux.useDispatch();
   const observations = ReactRedux.useSelector(state => state.observations);
-
   const addAndRemoveButton = (() => {
     if (!props.userHasEditRights) {
       return React.createElement(React.Fragment, null);
@@ -33,7 +32,6 @@ export function BirdSearchResult(props = {}) {
       });
     }
   })();
-
   const dateElement = (() => {
     if (props.observation) {
       if (props.userHasEditRights) {
@@ -48,7 +46,6 @@ export function BirdSearchResult(props = {}) {
       return React.createElement(React.Fragment, null, tr("Not on the list yet"));
     }
   })();
-
   return React.createElement("div", {
     className: `BirdSearchResult ${!props.observation ? "not-previously-observed" : ""}`.trim()
   }, React.createElement(BirdThumbnail, {
@@ -61,23 +58,19 @@ export function BirdSearchResult(props = {}) {
   }, props.bird.species), React.createElement("div", {
     className: "date-observed"
   }, dateElement)), addAndRemoveButton);
-
   async function add_bird_to_list() {
     const success = await lla_add_observation.async({
       bird: props.bird,
       backend: props.backend
     });
-
     if (success) {
       storeDispatch({
         type: "set-highlighted-species",
         species: props.bird.species
       });
     }
-
     props.cbCloseSelf();
   }
-
   async function remove_bird_from_list() {
     props.cbCloseSelf();
     await lla_delete_observation.async({
@@ -85,7 +78,6 @@ export function BirdSearchResult(props = {}) {
       backend: props.backend
     });
   }
-
   async function change_observation_date() {
     props.cbCloseSelf();
     const observation = observations.find(obs => obs.species === props.bird.species);
@@ -93,7 +85,6 @@ export function BirdSearchResult(props = {}) {
       observation,
       backend: props.backend
     });
-
     if (success) {
       storeDispatch({
         type: "set-highlighted-species",
@@ -106,7 +97,6 @@ BirdSearchResult.defaultProps = {
   userHasEditRights: false,
   observation: null
 };
-
 BirdSearchResult.validate_props = function (props) {
   ll_assert_native_type("object", props, props.backend);
   ll_assert_native_type("boolean", props.userHasEditRights);

@@ -6,7 +6,8 @@ import { ll_crash_app } from "./crash-app.js";
 import { ll_error_popup, ll_message_popup } from "./message-popup.js";
 export const LL_Action = function (props = {}) {
   ll_assert_native_type("object", props);
-  props = { ...props,
+  props = {
+    ...props,
     on_error: typeof props.on_error === "function" ? props.on_error : async () => {},
     finally: typeof props.finally === "function" ? props.finally : async () => {},
     successMessage: typeof props.successMessage === "string" ? props.successMessage : undefined
@@ -20,11 +21,9 @@ export const LL_Action = function (props = {}) {
     async: async function (args = {}, noCatch = false) {
       try {
         const actionResult = await props.act(args);
-
         if (actionResult !== undefined && typeof props.successMessage === "string") {
           ll_message_popup(props.successMessage);
         }
-
         return actionResult;
       } catch (error) {
         if (noCatch) {
@@ -35,7 +34,6 @@ export const LL_Action = function (props = {}) {
           console.warn("Caught in Action:", error);
           ll_error_popup(props.failMessage);
         }
-
         return null;
       } finally {
         try {

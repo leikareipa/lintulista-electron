@@ -23,7 +23,6 @@ export function ObservationListFootnotes(props = {}) {
     className: "observation-count"
   }, obsCount, "\xA0", obsDownload));
 }
-
 ObservationListFootnotes.validate_props = function (props) {
   ll_assert_native_type("object", props);
   return;

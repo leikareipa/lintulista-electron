@@ -26,12 +26,10 @@ export const lla_delete_observation = LL_Action({
         observation
       }
     });
-
     if (userGivesConsent) {
       await backend.delete_observation(observation);
       return true;
     }
-
     return;
   },
   finally: async function () {

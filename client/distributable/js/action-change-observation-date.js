@@ -23,7 +23,6 @@ export const lla_change_observation_date = LL_Action({
       }
     });
     ll_assert(newDate === null || typeof newDate === "object", "Invalid return data.");
-
     if (newDate) {
       const modifiedObservation = LL_Observation({
         species: observation.species,
@@ -34,7 +33,6 @@ export const lla_change_observation_date = LL_Action({
       await backend.add_observation(modifiedObservation);
       return true;
     }
-
     return;
   },
   finally: async function () {

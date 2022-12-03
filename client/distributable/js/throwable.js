@@ -8,7 +8,6 @@ export const LL_Throwable = function (message = "Unspecified error") {
   LL_BaseType.assign(LL_Throwable, publicInterface);
   return publicInterface;
 };
-
 LL_Throwable.is_parent_of = function (candidate) {
   return LL_BaseType.type_of(candidate) === LL_Throwable;
 };

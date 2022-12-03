@@ -28,31 +28,25 @@ export function ScrollerLabel(props = {}) {
     additionalClassName: "down",
     callback: () => scroll_value(-1)
   }));
-
   function scroll_value(direction = 1) {
     value = value + direction < props.min ? props.max : value + direction > props.max ? props.min : value + direction;
     setUnderlyingValue(value);
   }
-
   function displayable_value() {
     switch (props.type) {
       case "integer":
         return language === "lat" ? value2roman(underlyingValue) : underlyingValue;
-
       case "month-name":
         return month_name(underlyingValue - 1);
-
       default:
         throw LL_Throwable("Unknown value type.");
     }
   }
-
   function month_name(idx = 0) {
     const monthNames = [tr("January"), tr("February"), tr("March"), tr("April"), tr("May"), tr("June"), tr("July"), tr("August"), tr("September"), tr("October"), tr("November"), tr("December")];
     return monthNames[idx % 12];
   }
 }
-
 ScrollerLabel.validate_props = function (props) {
   ll_assert_native_type("object", props);
   ll_assert_native_type("string", props.type);

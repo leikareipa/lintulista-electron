@@ -16,7 +16,6 @@ export function CheckBoxButton(props = {}) {
   }, React.createElement("i", {
     className: isChecked ? props.iconChecked : props.iconUnchecked
   })));
-
   function handle_click() {
     props.callbackOnButtonClick(!isChecked);
     setIsChecked(!isChecked);
@@ -33,7 +32,6 @@ CheckBoxButton.defaultProps = {
   showTooltip: true,
   callbackOnButtonClick: () => {}
 };
-
 CheckBoxButton.validate_props = function (props) {
   ll_assert_native_type("object", props);
   return;

@@ -21,26 +21,21 @@ export function CreateNewListButton(props = {}) {
         {
           (async () => {
             const keys = await LL_Backend.create_new_list();
-
             if (keys) {
               setNewListKeys(keys);
             } else {
               setCurrentStep("fail");
             }
           })();
-
           break;
         }
-
       case "3":
         {
           if (!is_defined(newListKeys.editKey) || !is_defined(newListKeys.viewKey)) {
             setCurrentStep("fail");
           }
-
           break;
         }
-
       default:
         break;
     }
@@ -76,7 +71,6 @@ export function CreateNewListButton(props = {}) {
     }
   }, stepElements[currentStep] || React.createElement(React.Fragment, null)));
 }
-
 CreateNewListButton.validate_props = function (props) {
   ll_assert_native_type("object", props);
   return;

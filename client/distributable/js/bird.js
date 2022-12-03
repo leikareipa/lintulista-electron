@@ -12,13 +12,10 @@ export const LL_Bird = function (species = "") {
   });
   return publicInterface;
 };
-
 LL_Bird.is_parent_of = function (candidate) {
   return LL_BaseType.type_of(candidate) === LL_Bird && candidate.hasOwnProperty("species") && candidate.hasOwnProperty("thumbnailUrl");
 };
-
 LL_Bird.nullThumbnailUrl = "./img/null-bird-thumbnail.png";
-
 LL_Bird.clone = function (bird = LL_Bird) {
   ll_assert_type(LL_Bird, bird);
   return LL_Bird(bird.species);

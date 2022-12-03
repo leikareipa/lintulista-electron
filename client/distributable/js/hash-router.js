@@ -20,7 +20,6 @@ export async function ll_hash_route(lintulistaUrl = "") {
 }
 export function ll_hash_navigate(parameter, newValue) {
   ll_assert_native_type("string", parameter, newValue);
-
   switch (parameter) {
     case "language":
       {
@@ -32,10 +31,8 @@ export function ll_hash_navigate(parameter, newValue) {
         break;
       }
   }
-
   return;
 }
-
 function add_part_to_window_hash(parameter = "", value = "") {
   ll_assert_native_type("string", parameter, value);
   const oldOnHashChangeHandler = window.onhashchange;
@@ -46,21 +43,17 @@ function add_part_to_window_hash(parameter = "", value = "") {
   }, 0);
   return;
 }
-
 function hash_with_parameter(parameter = "", value = "") {
   ll_assert_native_type("string", parameter, value);
   let hash = window.location.hash.replace("#", "");
   const parameterRegexp = new RegExp(`${parameter}/.*(/|$)`);
-
   if (hash.match(parameterRegexp)) {
     hash = hash.replace(parameterRegexp, `${parameter}/${value}`);
   } else {
     hash += `/${parameter}/${value}`;
   }
-
   return hash;
 }
-
 async function route_list(url = "") {
   const keyRegexp = /^#([a-z]{9})/;
   ll_assert(url.match(keyRegexp), "Invalid list URL.");
@@ -80,7 +73,6 @@ async function route_list(url = "") {
   });
   return;
 }
-
 async function route_404(url = "") {
   const appElement = document.getElementById("lintulista");
   ll_assert_native_type(Element, appElement);

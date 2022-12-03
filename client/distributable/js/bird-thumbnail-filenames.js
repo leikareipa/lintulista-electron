@@ -1,5 +1,4 @@
 "use strict";
-
 export const birdThumbnailFilenames = {
   "Metsäviklo": "0005609d-4f41-4fa5-9ad9-ea8c0a4bafe5.jpg",
   "Sininärhi": "017ea8ee-b6e8-48a8-b54c-6b38fac7c198.jpg",

@@ -46,18 +46,14 @@ export function value2roman(value = 1) {
     console.error(`The value ${value} is out of range for conversion to roman numerals.`);
     return value;
   }
-
   let numeralRepresentation = [];
   const valueString = value.toString();
-
   for (let i = 0; i < valueString.length; i++) {
     const chr = valueString[valueString.length - i - 1];
     const numeralFamily = numerals[i];
-
     if (chr > 0) {
       numeralRepresentation.unshift(numeralFamily[chr]);
     }
   }
-
   return numeralRepresentation.join("");
 }
