@@ -44,37 +44,6 @@ export function ObservationListMenuBar(props = {}) {
       type: "set-100-lajia-mode",
       isEnabled: isChecked
     })
-  }), React.createElement(MenuButton, {
-    icon: "fas fa-question fa-fw fa-lg",
-    id: "list-info",
-    title: tr("Information"),
-    menuTitle: "Lintulista",
-    items: [{
-      text: tr("Image info"),
-      callbackOnSelect: () => window.open("./guide/images.html")
-    }, {
-      text: "GitHub",
-      callbackOnSelect: () => window.open("https://github.com/leikareipa/lintulista/")
-    }],
-    showTooltip: false
-  }), React.createElement(ObservationList_MenuBar_LoginButton, {
-    backend: props.backend
-  }), React.createElement(MenuButton, {
-    icon: "fas fa-language fa-fw",
-    id: "list-language",
-    title: tr("Language"),
-    menuTitle: tr("Language"),
-    items: [{
-      text: "English",
-      callbackOnSelect: () => ll_hash_navigate("language", "enEN")
-    }, {
-      text: "Latine",
-      callbackOnSelect: () => ll_hash_navigate("language", "lat")
-    }, {
-      text: "Suomi",
-      callbackOnSelect: () => ll_hash_navigate("language", "fiFI")
-    }],
-    showTooltip: false
   })));
 }
 ObservationListMenuBar.validate_props = function (props) {

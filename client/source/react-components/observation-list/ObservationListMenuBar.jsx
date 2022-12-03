@@ -71,6 +71,7 @@ export function ObservationListMenuBar(props = {})
                 callbackOnButtonClick={(isChecked)=>setIs100LajiaMode({type: "set-100-lajia-mode", isEnabled: isChecked})}
             />
 
+            {/*
             <MenuButton
                 icon="fas fa-question fa-fw fa-lg"
                 id="list-info"
@@ -99,6 +100,7 @@ export function ObservationListMenuBar(props = {})
                 ]}
                 showTooltip={false}
             />
+            */}
 
         </div>
                            
