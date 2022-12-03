@@ -53,7 +53,7 @@ export function ConfirmObservationDeletion(props = {})
         <div className="fields">
 
             <div className="bird-name">
-                {props.args.observation.species}
+                {tr("Confirm deletion of \"%1\"", props.args.observation.species)}:
             </div>
 
             <input
@@ -65,7 +65,7 @@ export function ConfirmObservationDeletion(props = {})
             />
 
             <div className="instruction">
-                {tr("Type \"%1\" to continue", props.args.observation.species)}
+                {tr("Type \"%1\" to confirm", props.args.observation.species.toLowerCase())}
             </div>
             
         </div>

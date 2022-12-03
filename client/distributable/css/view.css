@@ -2,6 +2,7 @@
 {
     --zindex-dialog: 200;
     --zindex-popups: 50; /* Below shades.*/
+    --header-hor-padding: 2.5%;
 }
 
 * a
@@ -21,11 +22,24 @@ body
     color: white;
     text-align: center;
     margin: 0;
-    overflow-y: scroll;
     background-color: #dbdbdb;
     position: relative;
     z-index: 1;
-    font-family: "Delius", sans-serif;
+    font-family: sans-serif;
+    font-size: 100%;
+}
+
+#cover
+{
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: inset 0 -6vh 6vh -3vh rgba(255, 255, 255, 0.5);
+    z-index: 49;
+    pointer-events: none;
 }
 
 #lintulista header
@@ -49,7 +63,6 @@ body
 #lintulista footer
 {
     display: none;
-    font-family: sans-serif;
     color: gray;
     padding-top: 0;
     padding-bottom: 35px;
@@ -76,7 +89,6 @@ body
 #app-container .startup-loading-spinner
 {
     animation: reveal-flip 1.2s linear;
-    font-family: sans-serif;
     padding: 15px 30px;
     background-color: white;
     color: black;
@@ -107,7 +119,7 @@ body
     text-transform: lowercase;
     position: relative;
     top: 34px;
-    left: 13%;
+    left: var(--header-hor-padding);
     z-index: 0;
     font-family: "Beth Ellen";
     color: #e1e1e1;
@@ -212,7 +224,7 @@ body
     width: 405px;
     position: absolute;
     top: 65px;
-    right: 13%;
+    right: var(--header-hor-padding);
     color: rgba(241, 241, 241, 0.45);
     opacity: 1;
     height: 45px;
@@ -225,16 +237,18 @@ body
     margin-left: 25px;
     display: flex;
     flex-direction: row;
-    flex-basis: 152px;
     justify-content: flex-end;
 }
 
 .ObservationList > .ObservationListMenuBar.sticky
 {
     position: fixed;
-    top: 6px;
-    right: 50px;
-    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+    top: 12px;
+    right: 12px;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+    background-color: rgba(0, 0, 0, 0.07);
+    padding: 12px 24px;
+    border-radius: 10px;
 }
 
 .ObservationList > .ObservationListMenuBar > .buttons *
@@ -281,18 +295,18 @@ body
 {
     white-space: nowrap;
     position: absolute;
-    top: -39px;
-    left: 50%;
+    top: -48px;
+    right: 25px;
     background-color: #e1dfdf;
     color: rgb(51, 51, 51);
-    border-radius: 13px 13px 13px 0;
-    font-size: 100%;
-    font-family: "Nunito";
+    border-radius: 13px;
+    border-bottom-right-radius: 0;
     line-height: 100%;
     padding: 9px;
     padding-left: 13px;
     padding-right: 13px;
     min-width: 45px;
+    user-select: none;
 }
 
 .ObservationList > .ObservationListMenuBar > .buttons > .Button > .tooltip:before,
@@ -302,11 +316,11 @@ body
     content: "";
     position: absolute;
     top: 100%;
-    left: 0;
+    right: 0;
     width: 0;
-    border-top: 7px solid #e1dfdf;
-    border-left: 0px solid transparent;
-    border-right: 10px solid transparent;
+    border-top: 10px solid #e1dfdf;
+    border-right: 0px solid transparent;
+    border-left: 14px solid transparent;
 }
 
 .ObservationList > .ObservationListMenuBar > .buttons > .MenuButton > .dropdown
@@ -406,6 +420,7 @@ body
 
 .ObservationList > .ObservationListMenuBar > .BirdSearch > .BirdSearchBar > .search-field
 {
+    font-size: initial;
     width: 100%;
     height: 44px;
     outline: none;
@@ -444,9 +459,15 @@ body
 {
     position: absolute;
     top: 49px; /* Below the search input field.*/
-    right: calc(12% + 128px); /* Level with the search input field.*/
+    left: -38px; /* Level with the search input field.*/
     z-index: 10; /* Above the observation list.*/
     width: 390px;
+}
+
+.ObservationList > .ObservationListMenuBar.sticky .BirdSearchResultsDisplay
+{
+    top: 66px;
+    left: -13px;
 }
 
 .BirdSearchResultsDisplay.active
@@ -461,7 +482,6 @@ body
 {
     box-sizing: border-box;
     font-family: "Nunito", serif;
-    font-size: 98%;
     width: 100%;
     color: black;
     background-color: #ffffff;
@@ -549,7 +569,6 @@ body
 
 .BirdSearchResult > .card > .date-observed
 {
-    font-size: 95%;
     font-weight: normal;
     color: rgba(0, 0, 0, 0.6);
 }
@@ -589,10 +608,9 @@ body
 {
     background-color: transparent;
     color: #e1dfdf;
-    font-family: "Delius", sans-serif;
     position: absolute;
-    top: 91px;
-    left: 13%;
+    top: 93px;
+    left: var(--header-hor-padding);
     text-align: left;
 }
 
@@ -605,6 +623,7 @@ body
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 10px;
 }
 
 .ObservationList > .observation-cards.sata-lajia > .ObservationCardGhost
@@ -675,11 +694,10 @@ body
 .ObservationCardGhost > .observation-info
 {
     font-family: "Nunito", serif;
-    font-size: 98%;
     border-radius: 3px;
     width: 196px;
     margin-top: -15px;
-    padding-top: 24px;
+    padding-top: 26px;
     padding-bottom: 13px;
     background-color: #eaeaea;
     line-height: 115%;
@@ -696,7 +714,7 @@ body
     margin-top: -15px;
     background-color: #dbdbdb;
     border: 1px dashed rgb(143, 143, 143);
-    padding-top: 23px;
+    padding-top: 25px;
     padding-bottom: 12px;
     box-shadow: none;
 }
@@ -706,7 +724,7 @@ body
 {
     color: rgba(0, 0, 0, 1);
     font-weight: bold;
-    font-size: 90%;
+    font-size: 95%;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 10px;
@@ -715,14 +733,13 @@ body
 .ObservationCard > .observation-info > .date,
 .ObservationCardGhost > .observation-info > .date
 {
-    font-size: 80%;
+    font-size: 90%;
     color: rgba(0, 0, 0, 0.7);
-    margin-top: 1px;
+    margin-top: 3px;
 }
 
 .Dialog
 {
-    font-family: sans-serif;
     min-width: 450px;
     padding-top: 0px;
     background-color: #f9f9f9;
@@ -750,18 +767,18 @@ body
 
 .Dialog > .title
 {
+    font-weight: bold;
     user-select: none;
     text-align: left;
     padding: 20px 18px;
     color: white;
     border-radius: 0;
     background-color: #3591e7;
-    border-top: 1px solid #63a9fb;
 }
 
 .Dialog > .title > .title-icon
 {
-    margin-right: 5px;
+    margin-right: 0.5em;
     font-size: 125%;
 }
 
@@ -1104,7 +1121,6 @@ body
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    font-family: sans-serif;
 }
 
 #popup-notifications-container .popup-notification
@@ -1121,7 +1137,8 @@ body
     text-align: left;
     word-wrap: break-word;
     color: white;
-    background-color: #77716c;
+    font-size: 110%;
+    background-color: #229100;
     border: 1px solid #404040;
     cursor: pointer;
     border-radius: 6px;
@@ -1158,7 +1175,6 @@ body
 
 #blue-screen
 {
-    font-family: sans-serif;
     position: fixed;
     top: 0;
     left: 0;

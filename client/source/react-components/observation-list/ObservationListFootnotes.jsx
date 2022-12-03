@@ -20,7 +20,7 @@ export function ObservationListFootnotes(props = {})
     const observations = ReactRedux.useSelector(state=>state.observations);
 
     const obsCount = observations.length
-        ? <>{tr("The list has %1 species", observations.length)}.</>
+        ? <span>Listassa on nyt <strong>{observations.length}</strong> havaintoa.</span>//tr("The list has %1 species", observations.length)}.</>
         : <>{tr("The list is currently empty")}</>
 
     const obsDownload = observations.length

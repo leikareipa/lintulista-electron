@@ -22,7 +22,7 @@ export const translations = {
     lat: "Addidit observationis"
   },
   "Failed to add the observation": {
-    fiFI: "Lajin lisääminen epäonnistui",
+    fiFI: "Lajin lisääminen listaan epäonnistui",
     lat: "Deficio addere ad observationis"
   },
   "The date has been saved": {
@@ -138,12 +138,16 @@ export const translations = {
     lat: "Observationis diem"
   },
   "Delete an observation": {
-    fiFI: "Poista havainto",
+    fiFI: "Poista havainto listasta",
     lat: "Observationis an delere"
   },
-  "Type \"%1\" to continue": {
-    fiFI: "Kirjoita \"%1\" jatkaaksesi",
-    lat: "Typus %1 pergere"
+  "Confirm deletion of \"%1\"": {
+    fiFI: "Vahvista havainnon %1 poisto",
+    lat: "%1"
+  },
+  "Type \"%1\" to confirm": {
+    fiFI: "Kirjoita \"%1\" vahvistaaksesi",
+    lat: "Typus %1"
   },
   "Search for species": {
     fiFI: "Hae lajia",
@@ -166,7 +170,7 @@ export const translations = {
     lat: "Removere..."
   },
   "Not on the list yet": {
-    fiFI: "Ei vielä listalla",
+    fiFI: "Ei vielä havaintoa",
     lat: "Non de adhuc album"
   },
   "The list has %1 species": {

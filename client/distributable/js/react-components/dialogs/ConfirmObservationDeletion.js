@@ -28,7 +28,7 @@ export function ConfirmObservationDeletion(props = {}) {
     className: "fields"
   }, React.createElement("div", {
     className: "bird-name"
-  }, props.args.observation.species), React.createElement("input", {
+  }, tr("Confirm deletion of \"%1\"", props.args.observation.species), ":"), React.createElement("input", {
     className: "list-id",
     type: "text",
     onChange: update_on_input,
@@ -36,7 +36,7 @@ export function ConfirmObservationDeletion(props = {}) {
     autoFocus: true
   }), React.createElement("div", {
     className: "instruction"
-  }, tr("Type \"%1\" to continue", props.args.observation.species))));
+  }, tr("Type \"%1\" to confirm", props.args.observation.species.toLowerCase()))));
   function update_on_input(inputEvent) {
     const doesNameMatch = inputEvent.target.value.toLowerCase() === props.args.observation.species.toLowerCase();
     setButtonEnabled("accept", doesNameMatch);
