@@ -1,0 +1,10 @@
+{
+    "scripts": {
+        "build": "./node_modules/.bin/babel ./source/ --out-dir ./distributable/js/"
+    },
+    "dependencies": {
+        "@babel/cli": "^7.19.3",
+        "@babel/core": "^7.20.5",
+        "@babel/preset-react": "^7.18.6"
+    }
+}
