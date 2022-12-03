@@ -28,7 +28,7 @@ const dbConstants = {
     maxPlaintextPasswordLength: 30,
     minPasswordHashLength: 60,
     maxPasswordHashLength: 255,
-    numHoursTokenValid: 6,
+    numHoursTokenValid: 48,
 };
 
 // Provides an interface for interacting with Lintulista's database. Database
@@ -54,8 +54,7 @@ const dbConstants = {
 // 
 function list_database_accessor(listKey = "")
 {
-    LL_Assert(LL_IsListKeyValid(listKey),
-              "Invalid list key for database access.");
+    LL_Assert(LL_IsListKeyValid(listKey), "Invalid list key for database access.");
 
     const publicInterface = {
         // Returns true if the list key with which this interface was created exists
@@ -73,20 +72,19 @@ function list_database_accessor(listKey = "")
         // Logs the user out of the list. Throws on error.
         logout: async function(token = "")
         {
-            LL_Assert(await validate_token(token),
-                      "Attempted to use an invalid token to log out.");
-
+            LL_Assert(await validate_token(token), "Attempted to use an invalid token to log out.");
             await reset_list_token();
-
             return;
         },
         
         // Returns an object containing the login token on success; false otherwise.
         login: async function(username = "", plaintextPassword = "")
         {
-            LL_Assert(is_valid_username_string(username) &&
-                      is_valid_plaintext_password_string(plaintextPassword),
-                      "Invalid login credentials.");
+            LL_Assert(
+                (is_valid_username_string(username) &&
+                 is_valid_plaintext_password_string(plaintextPassword)),
+                "Invalid login credentials."
+            );
 
             const listUsername = await LL_DBExecutor.get_column_value("username", listKey);
             const listPasswordHash = await LL_DBExecutor.get_column_value("password_hash", listKey);
@@ -136,14 +134,16 @@ function list_database_accessor(listKey = "")
         },
 
         // Adds the given observation into the given list. Throws on failure.
-        add_observation: async function(token = "",
-                                        {species = "",
-                                         day = 0,
-                                         month = 0,
-                                         year = 0})
+        add_observation: async function(
+            token = "",
+            {
+                species = "",
+                day = 0,
+                month = 0,
+                year = 0
+            })
         {
-            LL_Assert(await validate_token(token),
-                      "Attempted to use an invalid token to add an observation.");
+            LL_Assert(await validate_token(token), "Attempted to use an invalid token to add an observation.");
 
             // If an observation of this species already exists in the list, well overwrite
             // it with the new observation data (we assume the user wants to e.g. change
@@ -164,11 +164,9 @@ function list_database_accessor(listKey = "")
         // Removes the first observation of the given species from the list. Note that a
         // list can contain at most one observation per species, so the observation date
         // isn't needed. Throws on failure.
-        delete_observation: async function(token = "",
-                                           species = "")
+        delete_observation: async function(token = "", species = "")
         {
-            LL_Assert(await validate_token(token),
-                      "Attempted to use an invalid token to delete an observation.");
+            LL_Assert(await validate_token(token), "Attempted to use an invalid token to delete an observation.");
 
             const observations = await this.get_observations();
             const targetObservation = observations.find(o=>o.species==species);

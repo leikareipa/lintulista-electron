@@ -44,7 +44,6 @@ function populate_http_response(htmlResponseCode = 200,
                                 response = http.ServerResponse)
 {
     response.statusCode = htmlResponseCode;
-    response.setHeader("Access-Control-Allow-Origin", "*");
 
     const publicInterface = {
         json: function(jsonObject = {})

@@ -121,6 +121,10 @@ export async function LL_Backend(listKey, reduxStore)
         ...LL_BaseType(LL_Backend)
     });
 
+    // For the Electron version of Lintulista, the user is logged in by virtue of
+    // launching the app.
+    await publicInterface.login("electron-user", "blaablaablaa");
+
     return publicInterface;
 
     function update_observation_store(observations = [LL_Observation])

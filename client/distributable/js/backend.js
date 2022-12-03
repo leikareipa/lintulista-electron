@@ -71,6 +71,7 @@ export async function LL_Backend(listKey, reduxStore) {
     },
     ...LL_BaseType(LL_Backend)
   });
+  await publicInterface.login("electron-user", "blaablaablaa");
   return publicInterface;
   function update_observation_store(observations = [LL_Observation]) {
     reduxStore.dispatch({

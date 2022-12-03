@@ -30,7 +30,7 @@ function start_client() {
         height: 720,
     });
 
-    if (!process.env.LL_DEV_MODE) {
+    if (!process.env.LL_DEV) {
         win.setMenu(null);
     }
     
