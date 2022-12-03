@@ -25,14 +25,20 @@ function start_server() {
 }
 
 function start_client() {
-    const win = new BrowserWindow({
+    const mainWindow = new BrowserWindow({
         width: 1280,
         height: 720,
+        show: false,
     });
 
     if (!process.env.LL_DEV) {
-        win.setMenu(null);
+        mainWindow.setMenu(null);
     }
     
-    win.loadFile("./client/index.html", {hash: "aaaaaaaaa"});
+    mainWindow.loadFile("./client/index.html", {hash: "aaaaaaaaa"});
+
+    mainWindow.on("ready-to-show", ()=>{
+        mainWindow.show();
+        mainWindow.focus();
+    });
 }
