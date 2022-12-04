@@ -65,7 +65,6 @@ function reducer(state = initialState, action)
             return {
                 ...state,
                 observations: observations_sorted_by_date(action.observations),
-                is100LajiaMode: (action.observations.length <= 0),
             };
         }
         case "set-known-birds":
