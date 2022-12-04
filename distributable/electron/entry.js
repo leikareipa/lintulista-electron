@@ -34,8 +34,8 @@ function start_client() {
     if (!process.env.LL_DEV) {
         mainWindow.setMenu(null);
     }
-    
-    mainWindow.loadFile("./client/index.html", {hash: "aaaaaaaaa"});
+
+    mainWindow.loadFile("./client/index.html", {hash: process.argv[2]});
 
     mainWindow.on("ready-to-show", ()=>{
         mainWindow.show();
