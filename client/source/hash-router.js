@@ -15,7 +15,7 @@ import {lla_route_hash_url} from "./action-route-hash-url.js";
 
 const routes = [
     { // View a list (e.g. "#aaaaaaaaa" or #aaaaaaaaa/lang/lat").
-        url: new RegExp("^#[a-z]{9}($|/)"),
+        url: new RegExp("^#[a-z0-9]{9}($|/)"),
         go: route_list,
     },
     { // Default route for when no others match.
@@ -92,7 +92,7 @@ function hash_with_parameter(parameter = "", value = "")
 
 async function route_list(url = "")
 {
-    const keyRegexp = /^#([a-z]{9})/;
+    const keyRegexp = /^#([a-z0-9]{9})/;
     ll_assert(url.match(keyRegexp), "Invalid list URL.");
 
     const listKey = url.match(keyRegexp)[1];

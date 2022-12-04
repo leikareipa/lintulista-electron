@@ -52,7 +52,7 @@ async function test_ListKey()
     {
         const chr = String.fromCharCode(i);
         const key = chr.repeat(keyLength);
-        const shouldBeValid = !key.match(/[^a-z]/);
+        const shouldBeValid = !key.match(/[^a-z0-9]/);
         LLTest_ExpectTrue(()=>LL_IsListKeyValid(key) === shouldBeValid);
     }
 

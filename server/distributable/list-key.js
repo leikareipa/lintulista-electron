@@ -15,7 +15,9 @@ const keyLength = 9;
 
 function is_list_key_valid(listKeyCandidate = "")
 {
-    return ((typeof listKeyCandidate === "string") &&
-            (listKeyCandidate.length === keyLength) &&
-            (listKeyCandidate.match(/[^a-z]/) === null));
+    return (
+        (typeof listKeyCandidate === "string") &&
+        (listKeyCandidate.length === keyLength) &&
+        (listKeyCandidate.match(/[^a-z0-9]/) === null)
+    );
 }

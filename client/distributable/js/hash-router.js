@@ -5,7 +5,7 @@ import { store } from "./redux-store.js";
 import { lla_start_lintulista } from "./action-start-lintulista.js";
 import { lla_route_hash_url } from "./action-route-hash-url.js";
 const routes = [{
-  url: new RegExp("^#[a-z]{9}($|/)"),
+  url: new RegExp("^#[a-z0-9]{9}($|/)"),
   go: route_list
 }, {
   url: /.*/,
@@ -55,7 +55,7 @@ function hash_with_parameter(parameter = "", value = "") {
   return hash;
 }
 async function route_list(url = "") {
-  const keyRegexp = /^#([a-z]{9})/;
+  const keyRegexp = /^#([a-z0-9]{9})/;
   ll_assert(url.match(keyRegexp), "Invalid list URL.");
   const listKey = url.match(keyRegexp)[1];
   {
