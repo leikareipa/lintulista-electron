@@ -6,7 +6,7 @@ import { lla_export_observations_to_csv } from "../../action-export-obs-to-csv.j
 export function ObservationListFootnotes(props = {}) {
   ObservationListFootnotes.validate_props(props);
   const observations = ReactRedux.useSelector(state => state.observations);
-  const obsCount = observations.length ? React.createElement("span", null, "Listassa on nyt ", React.createElement("strong", null, observations.length), " havaintoa.") : React.createElement(React.Fragment, null, tr("The list is currently empty"));
+  const obsCount = observations.length ? React.createElement("span", null, "Listassa ", React.createElement("strong", null, props.backend.listKey), " on ", React.createElement("strong", null, observations.length), " havaintoa.") : React.createElement("span", null, "Listassa ", React.createElement("strong", null, props.backend.listKey), " ei viel\xE4 ole havaintoja.");
   const obsDownload = observations.length ? React.createElement("span", {
     onClick: async () => await lla_export_observations_to_csv.async({
       observations
@@ -16,7 +16,7 @@ export function ObservationListFootnotes(props = {}) {
       cursor: "pointer",
       fontVariant: "normal"
     }
-  }, tr("Download as CSV")) : React.createElement(React.Fragment, null);
+  }, tr("Download them as CSV")) : React.createElement(React.Fragment, null);
   return React.createElement("div", {
     className: "ObservationListFootnotes"
   }, React.createElement("div", {

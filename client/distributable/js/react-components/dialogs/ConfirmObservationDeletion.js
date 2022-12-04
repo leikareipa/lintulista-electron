@@ -28,7 +28,7 @@ export function ConfirmObservationDeletion(props = {}) {
     className: "fields"
   }, React.createElement("div", {
     className: "bird-name"
-  }, tr("Confirm deletion of \"%1\"", props.args.observation.species), ":"), React.createElement("input", {
+  }, tr("Confirm deletion of \"%1\"", props.args.observation.species)), React.createElement("input", {
     className: "list-id",
     type: "text",
     onChange: update_on_input,

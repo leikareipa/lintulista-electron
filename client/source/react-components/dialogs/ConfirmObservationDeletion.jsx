@@ -53,7 +53,7 @@ export function ConfirmObservationDeletion(props = {})
         <div className="fields">
 
             <div className="bird-name">
-                {tr("Confirm deletion of \"%1\"", props.args.observation.species)}:
+                {tr("Confirm deletion of \"%1\"", props.args.observation.species)}
             </div>
 
             <input

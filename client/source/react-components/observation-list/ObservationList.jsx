@@ -47,7 +47,7 @@ export function ObservationList(props = {})
 
         </div>
 
-        <ObservationListFootnotes/>
+        <ObservationListFootnotes backend={props.backend}/>
                             
     </div>
 

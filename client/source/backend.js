@@ -38,6 +38,10 @@ export async function LL_Backend(listKey, reduxStore)
 
     // Public interface functions will throw on error.
     const publicInterface = Object.freeze({
+        get listKey() {
+            return listKey;
+        },
+        
         login: async function(username, password)
         {
             ll_assert_native_type("string", username, password);

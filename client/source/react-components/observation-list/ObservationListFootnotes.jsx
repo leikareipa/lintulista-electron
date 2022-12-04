@@ -20,14 +20,14 @@ export function ObservationListFootnotes(props = {})
     const observations = ReactRedux.useSelector(state=>state.observations);
 
     const obsCount = observations.length
-        ? <span>Listassa on nyt <strong>{observations.length}</strong> havaintoa.</span>//tr("The list has %1 species", observations.length)}.</>
-        : <>{tr("The list is currently empty")}</>
+        ? <span>Listassa <strong>{props.backend.listKey}</strong> on <strong>{observations.length}</strong> havaintoa.</span>//tr("The list has %1 species", observations.length)}.</>
+        : <span>Listassa <strong>{props.backend.listKey}</strong> ei vielä ole havaintoja.</span>//<>{tr("The list is currently empty")}</>
 
     const obsDownload = observations.length
         ? <span onClick={async()=>await lla_export_observations_to_csv.async({observations})}
                 style={{textDecoration:"underline", cursor:"pointer", fontVariant:"normal"}}>
 
-              {tr("Download as CSV")}
+              {tr("Download them as CSV")}
 
           </span>
         : <></>                                                          

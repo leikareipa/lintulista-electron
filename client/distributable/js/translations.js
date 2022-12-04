@@ -34,7 +34,7 @@ export const translations = {
     lat: "Deficio ad diem"
   },
   "The observation has been deleted": {
-    fiFI: "Laji poistettiin listalta",
+    fiFI: "Laji poistettiin listasta",
     lat: "Remota autem observationis"
   },
   "Failed to delete the observation": {
@@ -133,8 +133,12 @@ export const translations = {
     fiFI: "Kirjautuminen on voimassa, kunnes kirjaudut ulos tai lataat sivun uudelleen; kuitenkin korkeintaan kuutisen tuntia.",
     lat: "Vestri login pagina reload nec remanebit ex activae usque ad log. Ceterum de ipso post sex horas initium eris."
   },
-  "Date of observation": {
-    fiFI: "Havaintopäivämäärä",
+  "%1 was observed on...": {
+    fiFI: "%1 havaittiin...",
+    lat: "Observationis diem %1"
+  },
+  "Set the date of observation": {
+    fiFI: "Muuta havaintopäivämäärää",
     lat: "Observationis diem"
   },
   "Delete an observation": {
@@ -181,8 +185,8 @@ export const translations = {
     fiFI: "Listassa ei vielä ole lajihavaintoja",
     lat: "Et inanis sit amet album"
   },
-  "Download as CSV": {
-    fiFI: "Lataa CSV:nä",
+  "Download them as CSV": {
+    fiFI: "Lataa ne CSV:nä",
     lat: "Recipio CSV"
   },
   "Language": {

@@ -20,7 +20,9 @@ export function ObservationList(props = {}) {
     backend: props.backend
   }), React.createElement("div", {
     className: "observation-cards"
-  }, cards_from_observations(is100LajiaMode ? merge_100_lajia_with(observations) : observations)), React.createElement(ObservationListFootnotes, null));
+  }, cards_from_observations(is100LajiaMode ? merge_100_lajia_with(observations) : observations)), React.createElement(ObservationListFootnotes, {
+    backend: props.backend
+  }));
   function cards_from_observations(observations = [Observation]) {
     ll_assert_native_type("array", observations);
     return observations.map(obs => {

@@ -40,9 +40,9 @@ export function QueryNewObservationDate(props = {})
     let year = props.args.observation.year;
 
     return <Dialog component="QueryNewObservationDate"
-                   title={tr("Date of observation")}
+                   title={tr("Set the date of observation")}
                    enterAccepts={true}
-                   acceptButtonIcon="fas fa-clock"
+                   acceptButtonIcon="fas fa-check"
                    rejectButtonText={tr("Cancel")}
                    acceptButtonText={tr("Save")}
                    onDialogAccept={accept}
@@ -56,7 +56,7 @@ export function QueryNewObservationDate(props = {})
         <div className="fields">
 
             <div className="bird-name">
-                {props.args.observation.species}
+                {tr("%1 was observed on...", props.args.observation.species)}
             </div>
 
             <div className="date-bar">

@@ -49,7 +49,7 @@ export const translations = {
     },
 
     "The observation has been deleted": {
-        fiFI: "Laji poistettiin listalta",
+        fiFI: "Laji poistettiin listasta",
         lat: "Remota autem observationis"
     },
 
@@ -173,8 +173,13 @@ export const translations = {
         lat: "Vestri login pagina reload nec remanebit ex activae usque ad log. Ceterum de ipso post sex horas initium eris."
     },
 
-    "Date of observation": {
-        fiFI: "Havaintopäivämäärä",
+    "%1 was observed on...": {
+        fiFI: "%1 havaittiin...",
+        lat: "Observationis diem %1"
+    },
+
+    "Set the date of observation": {
+        fiFI: "Muuta havaintopäivämäärää",
         lat: "Observationis diem"
     },
 
@@ -233,8 +238,8 @@ export const translations = {
         lat: "Et inanis sit amet album"
     },
 
-    "Download as CSV": {
-        fiFI: "Lataa CSV:nä",
+    "Download them as CSV": {
+        fiFI: "Lataa ne CSV:nä",
         lat: "Recipio CSV"
     },
 

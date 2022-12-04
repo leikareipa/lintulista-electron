@@ -14,9 +14,9 @@ export function QueryNewObservationDate(props = {}) {
   let year = props.args.observation.year;
   return React.createElement(Dialog, {
     component: "QueryNewObservationDate",
-    title: tr("Date of observation"),
+    title: tr("Set the date of observation"),
     enterAccepts: true,
-    acceptButtonIcon: "fas fa-clock",
+    acceptButtonIcon: "fas fa-check",
     rejectButtonText: tr("Cancel"),
     acceptButtonText: tr("Save"),
     onDialogAccept: accept,
@@ -28,7 +28,7 @@ export function QueryNewObservationDate(props = {}) {
     className: "fields"
   }, React.createElement("div", {
     className: "bird-name"
-  }, props.args.observation.species), React.createElement("div", {
+  }, tr("%1 was observed on...", props.args.observation.species)), React.createElement("div", {
     className: "date-bar"
   }, React.createElement("div", {
     className: "day"
