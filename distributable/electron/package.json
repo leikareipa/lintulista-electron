@@ -1,6 +1,6 @@
 {
     "name": "Lintulista",
-    "main": "./electron/entry.js",
+    "main": "entry.js",
     "dependencies": {
         "electron": "^22.0.0"
     }

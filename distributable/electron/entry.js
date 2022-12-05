@@ -35,7 +35,7 @@ function start_client() {
         mainWindow.setMenu(null);
     }
 
-    mainWindow.loadFile("./client/index.html", {hash: process.argv[2]});
+    mainWindow.loadFile("../client/index.html", {hash: process.argv[2]});
 
     mainWindow.on("ready-to-show", ()=>{
         mainWindow.show();

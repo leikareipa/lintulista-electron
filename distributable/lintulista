@@ -1,1 +1,1 @@
-./node_modules/electron/dist/electron . $1
+./electron/node_modules/electron/dist/electron ./electron/. $1
