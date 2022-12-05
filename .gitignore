@@ -1,3 +1,6 @@
 node_modules/
+
 /distributable/database/*
 !/distributable/database/testeihin.json
+
+/client/distributable/js/
