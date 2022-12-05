@@ -3,6 +3,12 @@
     <head>
         <title>Lintulista!</title>
 
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'self';
+            connect-src file: http://localhost:8080;
+            script-src 'self' 'sha256-c4eDGY5TtOcUayHZEsp1Pw2Umu+XyortZBXC1H+Kpa8=' 'sha256-pcW13VgX1IJDijmvV2QJnrr8XPf4dfXEI08epIyiVUI=';
+            style-src 'self' 'sha256-Y7MiCL7hJX78v9gjefMURb+Ccsq9Pq3pnHS4R1LePkE=' 'sha256-fgYzIscgDRH9QNfNrFC6J/GC0ZuTZwcCVzKe4uQQ1EU=';
+        ">
         <meta name="referrer" content="no-referrer">
         <meta name="viewport" content="width=device-width">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -24,9 +30,7 @@
             <header class="wave glide">
                 <div id="app-title">
                     Lintulista
-                    <i class="fas fa-feather-alt fa-sm"
-                        style="transform: translateY(-16px) translateX(-10px);">
-                    </i>
+                    <i class="logo fas fa-feather-alt fa-sm"></i>
                 </div>
             </header>
 
@@ -44,14 +48,7 @@
         <div id="blue-screen">
 
             <h1>
-                <i class="fas fa-fw fa-otter"
-                   style="font-size: 400%;
-                          position: absolute;
-                          transform: translateY(calc(-100% - 10px));
-                          display: block;
-                          margin-bottom: 25px;">
-                </i>
-
+                <i class="icon fas fa-fw fa-otter"></i>
                 Lintulista has crashed
             </h1>
 
