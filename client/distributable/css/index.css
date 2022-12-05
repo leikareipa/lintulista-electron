@@ -235,12 +235,13 @@ footer
     margin-top: -15px;
     padding-top: 24px;
     padding-bottom: 13px;
-    background-color: #eaeaea;
+    background-color: #eeeeee;
     line-height: 115%;
     text-align: center;
     position: relative;
     z-index: 1;
     box-shadow: 0 2px 5px -4px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #c7c7c7;
 }
 
 .ObservationCard > .observation-info > .bird-name

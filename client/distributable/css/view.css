@@ -610,6 +610,7 @@ body
 {
     font-weight: normal;
     color: rgba(0, 0, 0, 0.6);
+    font-family: sans-serif;
 }
 
 .BirdSearchResult > .card > .date-observed > .edit-date
@@ -704,8 +705,16 @@ body
 .ObservationCard.highlighted .BirdThumbnail,
 .ObservationCard.highlighted .observation-info
 {
-    border-color: palegoldenrod;
     background-color: palegoldenrod;
+    border-color: palegoldenrod;
+}
+
+.ObservationCard.highlighted .observation-info
+{
+    border-bottom: none;
+    transition: background-color 1.5s ease,
+                transform 1s ease,
+                box-shadow 1s ease;
 }
 
 .ObservationCard > .BirdThumbnail,
@@ -738,13 +747,23 @@ body
     margin-top: -14px;
     padding-top: 26px;
     padding-bottom: 13px;
-    background-color: #eaeaea;
+    background-color: #eeeeee;
     line-height: 115%;
     text-align: center;
     position: relative;
     z-index: 1;
     white-space: nowrap;
     box-shadow: 0 2px 5px -4px rgba(0, 0, 0, 0.2);
+}
+
+.ObservationCard.highlighted > .observation-info
+{
+    border-bottom: 1px solid transparent;
+}
+
+.ObservationCard:not(.highlighted) > .observation-info
+{
+    border-bottom: 1px solid #c7c7c7;
 }
 
 .ObservationCardGhost > .observation-info
@@ -763,7 +782,6 @@ body
 {
     color: rgba(0, 0, 0, 1);
     font-weight: bold;
-    font-size: 95%;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0 10px;
@@ -772,9 +790,10 @@ body
 .ObservationCard > .observation-info > .date,
 .ObservationCardGhost > .observation-info > .date
 {
-    font-size: 90%;
+    font-size: 95%;
     color: rgba(0, 0, 0, 0.7);
-    margin-top: 3px;
+    margin-top: 4px;
+    font-family: sans-serif;
 }
 
 .Dialog
