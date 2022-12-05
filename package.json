@@ -1,0 +1,8 @@
+{
+    "name": "lintulista",
+    "license": "GPL-3.0-or-later",
+    "scripts": {
+        "install-all": "yarn --cwd ./client/ install && yarn --cwd ./server/ install && yarn --cwd ./distributable/electron install",
+        "build-all": "yarn --cwd ./client/ run build"
+    }
+}

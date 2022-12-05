@@ -1,5 +1,6 @@
 {
-    "name": "Lintulista",
+    "name": "lintulista-electron",
+    "license": "GPL-3.0-or-later",
     "main": "entry.js",
     "dependencies": {
         "electron": "^22.0.0"

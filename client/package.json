@@ -1,4 +1,6 @@
 {
+    "name": "lintulista-client",
+    "license": "GPL-3.0-or-later",
     "scripts": {
         "build": "./node_modules/.bin/babel ./source/ --out-dir ./distributable/js/"
     },
