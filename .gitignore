@@ -1,6 +1,6 @@
 node_modules/
 
 /distributable/database/*
-!/distributable/database/testeihin.json
+!/distributable/database/samplelst.json
 
 /client/distributable/js/
