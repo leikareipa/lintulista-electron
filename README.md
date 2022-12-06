@@ -2,12 +2,15 @@
 
 [Electron](https://www.electronjs.org/) wrapping to convert the deprecated SaaS web app Lintulista &ndash; previously made up of [lintulista-client](https://github.com/leikareipa/lintulista-client) and [lintulista-server](https://github.com/leikareipa/lintulista-server) &ndash; into a desktop app.
 
+![A screenshot of Lintulista](./screenshot.webp)
+
 The gist of Lintulista is that it lets the user create and govern lists of bird sightings, with a visually rewarding presentation. The program is intended for casual use, generally for keeping track of the date on which you first observed a particular species in a given year.
 
 This Electron version of Lintulista has been made with Linux (Ubuntu) in mind. You may need to adapt it to suit other operating environments.
 
+## How this repo is organized
 
-![A screenshot of Lintulista](./screenshot.webp)
+The [client](./client/) comprises the app's GUI, while the [server](./server/) mediates access (fetching, adding, and removing observations) to the [database](./distributable/database/) of lists. The [distributable](./distributable/) is what you copy and distribute to whoever you want to give the app &ndash; making sure the copy expands symlinks (the expected size is about 100 MB zipped).
 
 ## Getting started
 
@@ -15,10 +18,6 @@ This Electron version of Lintulista has been made with Linux (Ubuntu) in mind. Y
 2. Refresh the distributable: `$ yarn run build-all`
 3. View a sample list: `$ cd distributable && ./lintulista samplelst && cd -`
     - Note: You may need to give the `lintulista` file executable permission first.
-
-### How this repo is organized
-
-The [client](./client/) comprises the app's GUI, while the [server](./server/) mediates access (fetching, adding, and removing observations) to the [database](./distributable/database/) of lists. The [distributable](./distributable/) is what you copy and distribute to whoever you want to give the app &ndash; making sure the copy expands symlinks (the expected size is about 100 MB zipped).
 
 ### Creating a new list
 
